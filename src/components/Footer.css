@@ -1,0 +1,132 @@
+/* =========================================
+   Footer Base Styles
+========================================= */
+.footer-container {
+  background-color: #800000; /* deep maroon */
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   Footer Brand Section
+========================================= */
+.footer-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: #f5d66f;
+  opacity: 0.9;
+}
+
+/* =========================================
+   Footer Links
+========================================= */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+/* =========================================
+   Footer Social Icons
+========================================= */
+.footer-social-title {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  color: #ffd700;
+  font-size: 1.8rem;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* =========================================
+   Copyright Section
+========================================= */
+.footer-copy {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: #f5d66f;
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer-social-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-brand {
+    font-size: 1.5rem;
+  }
+
+  .footer-links {
+    font-size: 0.95rem;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .social-icon {
+    font-size: 1.5rem;
+    margin: 0 8px;
+  }
+}

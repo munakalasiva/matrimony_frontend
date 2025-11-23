@@ -1,0 +1,141 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333; /* default text color */
+  background-color: #fff; /* default background */
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: #800000; /* maroon theme */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ffd700; /* gold on hover */
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: #800000;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+img:hover {
+  transform: none !important;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #800000;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #b22222; /* slightly lighter maroon */
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 15px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #800000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; /* stick footer to bottom */
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  a {
+    color: #ffd700;
+  }
+  a:hover {
+    color: #ffeb3b;
+  }
+  button {
+    background-color: #b22222;
+    color: #fff;
+  }
+  input,
+  textarea,
+  select {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+}

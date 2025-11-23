@@ -1,0 +1,155 @@
+/* ------------------------------------------
+   Base Desktop Design (same as before)
+------------------------------------------ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  background-color: #800000;
+  color: #fff;
+  position: relative;
+  z-index: 100;
+}
+
+.navbar-logo img {
+  height: 90px;
+  margin-top: 5px;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link {
+  color: #ffebcd;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #ffd700;
+}
+
+.logout-link {
+  cursor: pointer;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  color: #ffebcd;
+  pointer-events: none;
+  font-size: 20px;
+}
+
+.search-input {
+  padding: 5px 10px 5px 30px;
+  border-radius: 15px;
+  border: 2px solid #ffebcd;
+  outline: none;
+  font-size: 15px;
+  width: 187px;
+  margin-top: 20px;
+  color: #ffebcd;
+  background-color: transparent;
+}
+
+.search-input::placeholder {
+  color: #ffebcd;
+}
+
+/* ------------------------------------------
+   Mobile Menu Toggle
+------------------------------------------ */
+.menu-toggle {
+  display: none;
+  color: #ffebcd;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ------------------------------------------
+   Responsive Styles
+------------------------------------------ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #800000;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    transform: translateY(-200%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .search-container {
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 220px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .navbar-logo img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 15px;
+  }
+
+  .search-input {
+    width: 180px;
+    font-size: 13px;
+  }
+  .search-icon {
+    top: 48%;
+  }
+}

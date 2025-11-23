@@ -1,0 +1,175 @@
+/* =========================================
+   Contact Page Base Styles
+========================================= */
+.contact-container {
+  min-height: 100vh;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header Section */
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-header h3 {
+  color: #800000;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  color: #333;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Layout */
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Image Section */
+.contact-image-container {
+  flex: 1;
+  text-align: center;
+}
+
+.contact-image {
+  width: 100%;
+  max-width: 400px;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+.contact-form-container {
+  flex: 1;
+  min-width: 400px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.contact-form-container h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #800000;
+  margin-bottom: 10px;
+}
+
+.contact-form-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Input Fields */
+.contact-form-container input,
+.contact-form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+  border-color: #800000;
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(128, 0, 0, 0.1);
+}
+
+/* Textarea */
+.contact-form-container textarea {
+  height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Submit Button */
+.contact-form-container button {
+  background: linear-gradient(135deg, #800000 0%, #a00000 100%);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-form-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(128, 0, 0, 0.3);
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media (max-width: 992px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-image {
+    max-width: 350px;
+    height: 500px;
+  }
+
+  .contact-form-container {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-header h3 {
+    font-size: 2rem;
+  }
+
+  .contact-header p {
+    font-size: 1rem;
+  }
+
+  .contact-image {
+    height: 400px;
+  }
+
+  .contact-form-container {
+    padding: 25px;
+  }
+
+  .contact-form-container input,
+  .contact-form-container textarea {
+    font-size: 15px;
+  }
+
+  .contact-form-container button {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+}
