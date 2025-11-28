@@ -3,6 +3,7 @@ import axios from "axios";
 import ProfileListItem from "../components/ProfileListItem";
 import SearchFilters from "../components/SearchFilters";
 import { useLocation } from "react-router-dom";
+import { baseUrl } from "../api";
 
 const Matches = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const Matches = () => {
         setCurrentUser(user);
 
         const res = await axios.get(
-          "http://localhost:5000/api/match/profiles",
+          `${baseUrl}/match/profiles`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

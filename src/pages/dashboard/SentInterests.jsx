@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../App.css"; // custom css
+import { baseUrl } from "../../api";
 const SentInterests = () => {
   const [profiles, setProfiles] = useState([]);
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const SentInterests = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/interests/sent", {
+        const res = await fetch(`${baseUrl}/interests/sent`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const data = await res.json();

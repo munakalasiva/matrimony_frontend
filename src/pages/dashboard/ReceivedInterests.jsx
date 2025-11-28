@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../api";
 import "../../App.css"; // custom css
 const ReceivedInterests = () => {
   const [profiles, setProfiles] = useState([]);
@@ -10,7 +11,7 @@ const ReceivedInterests = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/interests/received",
+          `${baseUrl}/interests/received`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -29,7 +30,7 @@ const ReceivedInterests = () => {
   const handleResponse = async (id, action) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/interests/${id}/${action}`, // e.g., /accept or /reject
+        `${baseUrl}/interests/${id}/${action}`, // e.g., /accept or /reject
         {
           method: "PATCH",
           headers: {

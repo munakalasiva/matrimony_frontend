@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../App.css"; // custom css
 
+import { baseUrl } from "../../api";
 const SavedProfiles = () => {
   const [profiles, setProfiles] = useState([]);
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const SavedProfiles = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/savedProfiles", {
+        const res = await fetch(`${baseUrl}/savedProfiles`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const data = await res.json();
@@ -23,7 +24,7 @@ const SavedProfiles = () => {
 
   const removeProfile = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/savedProfiles/${id}`, {
+      await fetch(`${baseUrl}/savedProfiles/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

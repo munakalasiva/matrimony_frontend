@@ -1,6 +1,7 @@
 // src/components/ProfileListItem.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../api";
 import axios from "axios";
 
 const ProfileListItem = ({ profile }) => {
@@ -51,7 +52,7 @@ const ProfileListItem = ({ profile }) => {
       }
 
       await axios.post(
-        `http://localhost:5000/api/savedProfiles/${profile._id}`,
+        `${baseUrl}/savedProfiles/${profile._id}`,
         {},
         {
           headers: {
@@ -79,7 +80,7 @@ const ProfileListItem = ({ profile }) => {
       }
 
       const res = await fetch(
-        `http://localhost:5000/api/interests/${profile._id}`,
+        `${baseUrl}/interests/${profile._id}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

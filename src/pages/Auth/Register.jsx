@@ -1,6 +1,7 @@
 // src/pages/Auth/Register.jsx
 import React, { useState, useEffect } from "react";
 import { Country, State, City } from "country-state-city";
+import { baseUrl } from "../../api";
 import "../../App.css";
 
 const steps = [
@@ -120,101 +121,6 @@ const Register = () => {
   const nextStep = () => setStep((s) => Math.min(s + 1, steps.length - 1));
   const prevStep = () => setStep((s) => Math.max(s - 1, 0));
 
-  // Submit form
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   // 🚨 Prevent submission until final step
-  //   if (step !== steps.length - 1) {
-  //     return; // do nothing if not on Finalize step
-  //   }
-
-  //   if (formData.password !== formData.confirmPassword) {
-  //     alert("❌ Passwords do not match!");
-  //     return;
-  //   }
-
-  //   setLoading(true);
-
-  //   try {
-  //     const dataToSend = new FormData();
-  //     Object.keys(formData).forEach((key) => {
-  //       if (key === "profileImages" && formData.profileImages?.length > 0) {
-  //         formData.profileImages.forEach((file) => {
-  //           dataToSend.append("profileImages", file); // multiple files
-  //         });
-  //       } else {
-  //         dataToSend.append(key, formData[key]);
-  //       }
-  //     });
-
-  //     const response = await fetch("http://localhost:5000/api/auth/register", {
-  //       method: "POST",
-  //       body: dataToSend, // sending FormData
-  //     });
-
-  //     const data = await response.json();
-
-  //     localStorage.removeItem("registerDraft");
-  //     alert("🎉 Registration completed successfully!");
-  //     console.log("Registered User:", data);
-  //     setFormData({
-  //       // Basic Info
-  //       fullName: "",
-  //       email: "",
-  //       phone: "",
-  //       password: "",
-  //       confirmPassword: "",
-  //       profileFor: "",
-  //       gender: "",
-  //       dob: "",
-  //       maritalStatus: "",
-  //       height: "",
-
-  //       // Religion & Community
-  //       religion: "",
-  //       caste: "",
-  //       subCaste: "",
-  //       motherTongue: "",
-  //       gotra: "",
-  //       horoscope: "",
-
-  //       // Education & Career
-  //       education: "",
-  //       occupation: "",
-  //       company: "",
-  //       income: "",
-
-  //       // Lifestyle
-  //       diet: "",
-  //       drinking: "",
-  //       smoking: "",
-
-  //       // Location
-  //       country: "",
-  //       state: "",
-  //       city: "",
-  //       address: "",
-
-  //       // Family
-  //       fatherOccupation: "",
-  //       motherOccupation: "",
-  //       siblings: "",
-
-  //       // Final
-  //       bio: "",
-  //       profileImages: [], // ✅ reset to empty array
-  //     });
-  //     setPreview(null); // ✅ reset preview
-  //     setStep(0); // ✅ go back to first step
-  //   } catch (error) {
-  //     console.error("Registration Error:", error);
-  //     alert("❌ " + error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -248,7 +154,7 @@ const Register = () => {
         console.log("🧩 FormData entry:", key, value);
       }
 
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${baseUrl}/auth/register`, {
         method: "POST",
         body: dataToSend,
       });

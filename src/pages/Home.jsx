@@ -5,39 +5,11 @@ import ProfileCard from "../components/ProfileCard";
 import Blogs from "../components/Blogs";
 import Timeline from "../components/Timeline";
 
+import { baseUrl } from "../api";
 const Home = () => {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchProfiles = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:5000/api/match/latest");
-  //       const data = await res.json();
-
-  //       // ✅ Get logged-in user details
-  //       const storedUser = JSON.parse(localStorage.getItem("user"));
-  //       let filteredProfiles = data;
-
-  //       // if (storedUser?.gender) {
-  //       //   // ✅ Show only opposite gender profiles
-  //       //   const oppositeGender =
-  //       //     storedUser.gender.toLowerCase() === "bride" ? "groom" : "bride";
-  //       //   filteredProfiles = data.filter(
-  //       //     (p) => p.gender?.toLowerCase() === oppositeGender
-  //       //   );
-  //       // }
-  //       console.log("Filtered Profiles:", filteredProfiles);
-  //       setProfiles(filteredProfiles);
-  //     } catch (error) {
-  //       console.error("Error fetching profiles:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchProfiles();
-  // }, []);
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -45,7 +17,7 @@ const Home = () => {
         const token = localStorage.getItem("token");
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const res = await fetch("http://localhost:5000/api/match/latest", {
+        const res = await fetch(`${baseUrl}/match/latest`, {
           headers,
         });
         const data = await res.json();

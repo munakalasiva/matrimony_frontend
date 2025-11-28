@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { baseUrl } from "../api";
 import "../App.css";
 
 const Profile = () => {
@@ -72,7 +73,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `http://localhost:5000/api/match/profiles/${id}`,
+          `${baseUrl}/match/profiles/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setProfile(res.data);
@@ -93,7 +94,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/match/profiles",
+          `${baseUrl}/match/profiles`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -156,7 +157,7 @@ const Profile = () => {
       }
 
       await axios.post(
-        `http://localhost:5000/api/savedProfiles/${profile._id}`,
+        `${baseUrl}/savedProfiles/${profile._id}`,
         {},
         {
           headers: {
@@ -184,7 +185,7 @@ const Profile = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5000/api/interests/${profile._id}`,
+        `${baseUrl}/interests/${profile._id}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

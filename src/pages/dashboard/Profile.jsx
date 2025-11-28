@@ -1,5 +1,6 @@
 // src/pages/Dashboard/ProfileTab.jsx
 import React, { useState, useEffect } from "react";
+import { baseUrl } from "../../api";
 import "../../App.css";
 
 const ProfileTab = () => {
@@ -87,7 +88,7 @@ const ProfileTab = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/user/profile", {
+        const res = await fetch(`${baseUrl}/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch profile");
@@ -148,7 +149,7 @@ const ProfileTab = () => {
       if (removeImages.length > 0)
         formData.append("removeImages", JSON.stringify(removeImages));
 
-      const res = await fetch("http://localhost:5000/api/user/profile", {
+      const res = await fetch(`${baseUrl}/user/profile`, {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
